@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tidly — Join the Waitlist</title>
+  <meta name="description" content="Join the Tidly waitlist to get launch updates and early access to cleaning services in your area.">
+  <meta name="theme-color" content="#1A1714">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Tidly — Join the Waitlist">
+  <meta property="og:description" content="Be the first to know when Tidly launches in your area.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tidly — Join the Waitlist">
+  <meta name="twitter:description" content="Be the first to know when Tidly launches in your area.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Tidly Waitlist",
+      "url": "/",
+      "description": "Join the Tidly waitlist to get launch updates and early access to cleaning services in your area."
+    }
+  </script>
+</head>
+<body>
+  <main class="page">
+    <section class="card" aria-labelledby="waitlist-title">
+      <div class="brand">
+        <span class="brand-badge">Early Access</span>
+        <h1 id="waitlist-title">Join the Tidly Waitlist</h1>
+        <p>Get launch updates and early access when bookings open in your area.</p>
+      </div>
+
+      <form id="waitlistForm" class="waitlist-form" novalidate data-form-endpoint="https://formspree.io/f/maqpgjvz">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="John" autocomplete="given-name" required>
+            <p class="error-text" id="firstNameError" aria-live="polite"></p>
+          </div>
+
+          <div class="form-group">
+            <label for="lastName">Last name</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Doe" autocomplete="family-name" required>
+            <p class="error-text" id="lastNameError" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" placeholder="john@example.com" autocomplete="email" inputmode="email" required>
+          <p class="error-text" id="emailError" aria-live="polite"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" id="city" name="city" placeholder="Johannesburg" autocomplete="address-level2" required>
+          <p class="error-text" id="cityError" aria-live="polite"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="service">Interested in</label>
+          <select id="service" name="service" required>
+            <option value="">Select a service</option>
+            <option value="Home Cleaning">Home Cleaning</option>
+            <option value="Office Cleaning">Office Cleaning</option>
+            <option value="Deep Cleaning">Deep Cleaning</option>
+            <option value="Laundry Service">Laundry Service</option>
+            <option value="Other">Other</option>
+          </select>
+          <p class="error-text" id="serviceError" aria-live="polite"></p>
+        </div>
+
+        <div class="honeypot" aria-hidden="true">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+        </div>
+
+        <label class="checkbox-row" for="consent">
+          <input type="checkbox" id="consent" name="consent" required>
+          <span>I agree to receive launch updates from Tidly.</span>
+        </label>
+        <p class="error-text" id="consentError" aria-live="polite"></p>
+
+        <p class="privacy-note">Your info is only used for waitlist updates and launch communication.</p>
+
+        <button type="submit" id="submitBtn">Join the waitlist</button>
+        <p class="status" id="formStatus" aria-live="polite"></p>
+      </form>
+
+      <section class="features" aria-labelledby="why-join-title">
+        <h2 id="why-join-title">Why join</h2>
+        <ul class="feature-list">
+          <li>Early notification when bookings open</li>
+          <li>Service updates based on your city</li>
+          <li>Fast mobile-friendly sign-up</li>
+          <li>Clear, low-friction waitlist experience</li>
+        </ul>
+      </section>
+
+      <footer class="footer">
+        Tidly is preparing to launch. Join now to stay in the loop.
+      </footer>
+    </section>
+  </main>
+
+  <div class="success-overlay" id="successOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+    <div class="success-card">
+      <div class="success-icon" aria-hidden="true">✓</div>
+      <h2 id="successTitle">You’re on the list</h2>
+      <p>Thanks for joining. We’ll reach out when Tidly becomes available in your area.</p>
+      <button class="close-btn" type="button" id="closeSuccessBtn">Done</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
