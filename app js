@@ -1,0 +1,47 @@
+const form = document.getElementById('waitlistForm');
+const successOverlay = document.getElementById('successOverlay');
+const closeSuccessBtn = document.getElementById('closeSuccessBtn');
+const submitBtn = document.getElementById('submitBtn');
+const statusEl = document.getElementById('formStatus');form.addEventListener('submit', async function (e) {
+  e.preventDefault();company.value.trim() !== '') {
+    statusEl.textContent = 'Submission blocked.';
+    return;
+  }  const firstName = document.getElementById('firstName').value.trim();
+  const lastName = document.getElementById('lastName').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const city = document.getElementById('city').value.trim();
+  const service = document.getElementById('service').value;
+  const consent = document.getElementById('consent').checked;  if (!firstName || !lastName || !email || !city || !service || !consent) {
+    statusEl.textContent = 'Please complete all fields.';
+    return;
+  }  submitBtn.disabled = true;
+  submitBtn.textContent = 'Joining...';
+  statusEl.textContent = 'Submitting your request...';maqpgjvz', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        email,
+        city,
+        service,
+        consent,
+        source: 'Tidly Waitlist'
+      })
+    });    if (response.ok) {
+      form.reset();
+      statusEl.textContent = '';
+      successOverlay.classList.add('active');
+    } else {
+      statusEl.textContent = 'Something went wrong. Please try again.';
+    }
+  } catch (error) {
+    statusEl.textContent = 'Network error. Please try again.';
+  }  submitBtn.disabled = false;
+  submitBtn.textContent = 'Join the waitlist';
+});closeSuccessBtn.addEventListener('click', function () {
+  successOverlay.classList.remove('active');
+});
